@@ -176,6 +176,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "intl",
+      "rootUri": "file:///Users/siddharthshah/.pub-cache/hosted/pub.dev/intl-0.17.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "js",
       "rootUri": "file:///Users/siddharthshah/.pub-cache/hosted/pub.dev/js-0.6.7",
       "packageUri": "lib/",
@@ -308,7 +314,7 @@
       "languageVersion": "3.3"
     }
   ],
-  "generated": "2024-03-31T00:41:52.656819Z",
+  "generated": "2024-03-31T03:33:55.033998Z",
   "generator": "pub",
   "generatorVersion": "3.3.3"
 }
