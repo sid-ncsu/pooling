@@ -116,6 +116,12 @@
       "languageVersion": "3.1"
     },
     {
+      "name": "flutter_signin_button",
+      "rootUri": "file:///C:/Users/Dell/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_signin_button-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_test",
       "rootUri": "file:///D:/flutter/packages/flutter_test",
       "packageUri": "lib/",
@@ -126,6 +132,12 @@
       "rootUri": "file:///D:/flutter/packages/flutter_web_plugins",
       "packageUri": "lib/",
       "languageVersion": "3.2"
+    },
+    {
+      "name": "font_awesome_flutter",
+      "rootUri": "file:///C:/Users/Dell/AppData/Local/Pub/Cache/hosted/pub.dev/font_awesome_flutter-9.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "geolocator",
@@ -344,7 +356,7 @@
       "languageVersion": "3.3"
     }
   ],
-  "generated": "2024-03-31T08:24:12.447062Z",
+  "generated": "2024-03-31T08:36:08.023034Z",
   "generator": "pub",
   "generatorVersion": "3.3.3"
 }
