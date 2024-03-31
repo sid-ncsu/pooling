@@ -4,6 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:intl/intl.dart';
 import './rides.dart';
 import 'package:flutter/services.dart';
+import 'package:geolocator/geolocator.dart';
+
 
 class postride extends StatefulWidget {
   @override
@@ -20,6 +22,27 @@ class _postrideState extends State<postride> {
 
   final CollectionReference _ridesCollection = FirebaseFirestore.instance.collection('rides');
 
+  Future<Position?> getLocation() async {
+  try {
+    // Check if location services are enabled
+    bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      // Location services are not enabled, handle it here
+      return null;
+    }
+
+    // Get the current position
+    Position position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high);
+
+    // Return the position object
+    return position;
+  } catch (e) {
+    // Handle errors
+    print(e.toString());
+    return null;
+  }
+}
   // Validate date format
   String? _validateDate(String? value) {
     if (value == null || value.isEmpty) {
@@ -76,7 +99,7 @@ class _postrideState extends State<postride> {
         // Convert seats and amount to integers or doubles
         int seats = int.parse(_seatsController.text);
         double amount = double.parse(_amountController.text);
-
+        Position? position = await getLocation();
         // Create Firestore data map
         Map<String, dynamic> rideData = {
           'destination': _destinationController.text,
@@ -84,6 +107,8 @@ class _postrideState extends State<postride> {
           'time': Timestamp.fromDate(time), // Convert DateTime to Timestamp
           'seats': seats,
           'amount': amount,
+          'longitude':position?.longitude,
+          'latitude' : position?.latitude
         };
 
         // Update Firestore document

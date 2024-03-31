@@ -66,7 +66,9 @@ class _FirestoreScreenState extends State<FirestoreScreen> {
     "Amount: ${(record as Map<String, dynamic>)['amount'] ?? ""}, " +
     "No. of Seats: ${(record as Map<String, dynamic>)['no_of_seats'] ?? ""}, " +
     "Date: ${formattedDate}, " +
-    "Time: ${formattedTime}, " 
+    "Time: ${formattedTime}, " +
+    "Latitude: ${(record as Map<String, dynamic>)['latitude'] ?? ""}, " +
+    "Longitude: ${(record as Map<String, dynamic>)['longitude'] ?? ""}, " 
   ),
 ),
       ),
