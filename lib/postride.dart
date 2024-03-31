@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:intl/intl.dart';
+import './rides.dart';
 import 'package:flutter/services.dart';
 
 class postride extends StatefulWidget {
@@ -96,6 +97,11 @@ class _postrideState extends State<postride> {
               content: Text('Data submitted successfully!'),
             ),
           );
+
+          Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => FirestoreScreen()),
+    );
         } else {
           // If user is null, handle the scenario where the user is not signed in
           showDialog(

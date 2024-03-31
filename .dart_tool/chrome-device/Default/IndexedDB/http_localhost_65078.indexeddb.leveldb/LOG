@@ -1,0 +1,27 @@
+2024/03/30-23:07:57.580 a807 Creating DB /private/var/folders/bc/pjysndsd7j51y219vgygkq640000gn/T/flutter_tools.Sxu9yq/flutter_tools_chrome_device.tsKldl/Default/IndexedDB/http_localhost_65078.indexeddb.leveldb since it was missing.
+2024/03/30-23:07:57.594 a807 Reusing MANIFEST /private/var/folders/bc/pjysndsd7j51y219vgygkq640000gn/T/flutter_tools.Sxu9yq/flutter_tools_chrome_device.tsKldl/Default/IndexedDB/http_localhost_65078.indexeddb.leveldb/MANIFEST-000001
+2024/03/30-23:07:57.624 a603 Manual compaction at level-0 from '\x00\x01\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x02\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/03/30-23:16:03.950 b203 Level-0 table #5: started
+2024/03/30-23:16:03.963 b203 Level-0 table #5: 6427 bytes OK
+2024/03/30-23:16:03.973 b203 Delete type=0 #3
+2024/03/30-23:16:03.974 a807 Manual compaction at level-0 from '\x00\x04\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x05\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/03/30-23:18:55.776 b203 Level-0 table #7: started
+2024/03/30-23:18:55.786 b203 Level-0 table #7: 3960 bytes OK
+2024/03/30-23:18:55.797 b203 Delete type=0 #4
+2024/03/30-23:18:55.798 a603 Manual compaction at level-0 from '\x00\x05\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x06\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/03/30-23:19:34.990 a603 Compacting 1@1 + 1@2 files
+2024/03/30-23:19:34.997 a603 Generated table #8@1: 40 keys, 3713 bytes
+2024/03/30-23:19:34.997 a603 Compacted 1@1 + 1@2 files => 3713 bytes
+2024/03/30-23:19:35.006 a603 compacted to: files[ 0 0 1 0 0 0 0 ]
+2024/03/30-23:19:35.007 a603 Delete type=2 #7
+2024/03/30-23:19:35.007 a603 Delete type=2 #5
+2024/03/30-23:19:37.219 a603 Level-0 table #10: started
+2024/03/30-23:19:37.231 a603 Level-0 table #10: 3966 bytes OK
+2024/03/30-23:19:37.252 a603 Delete type=0 #6
+2024/03/30-23:19:37.253 a807 Manual compaction at level-0 from '\x00\x06\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x07\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/03/30-23:20:16.436 a603 Compacting 1@1 + 1@2 files
+2024/03/30-23:20:16.443 a603 Generated table #11@1: 40 keys, 3578 bytes
+2024/03/30-23:20:16.443 a603 Compacted 1@1 + 1@2 files => 3578 bytes
+2024/03/30-23:20:16.454 a603 compacted to: files[ 0 0 1 0 0 0 0 ]
+2024/03/30-23:20:16.454 a603 Delete type=2 #10
+2024/03/30-23:20:16.454 a603 Delete type=2 #8
