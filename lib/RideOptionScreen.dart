@@ -1,102 +1,6 @@
-// import 'package:flutter/material.dart';
-// import 'package:pooling/DestinationSearch.dart';
-// import './postride.dart';
-// import 'package:firebase_auth/firebase_auth.dart';
-
-
-
-// class RideOptionScreen extends StatelessWidget {
-//   // late User _currentUser;
-
-//   // @override
-//   // void initState() {
-//   //   // Get the current user when the widget initializes
-//   //   super.initState();
-//   //   _currentUser = FirebaseAuth.instance.currentUser!;
-//   // }
-
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text('Choose Your Option'),
-//       ),
-//       body: Column(
-//         mainAxisAlignment: MainAxisAlignment.center,
-//         crossAxisAlignment: CrossAxisAlignment.stretch,
-//         children: <Widget>[
-//           // Text(
-//           //     _currentUser.displayName ?? 'User',
-//           //     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-//           //   ),
-//           Padding(
-//             padding: const EdgeInsets.all(20.0),
-//             child: Text(
-//               'How can we help you today?',
-//               style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
-//               textAlign: TextAlign.center,
-//             ),
-//           ),
-//           OptionCard(
-//             icon: Icons.directions_car,
-//             text: 'Find me a ride!',
-//             onTap: () {
-//               Navigator.push(
-//                   context,
-//                 MaterialPageRoute(builder: (context) => DestinationSearch()),
-//     );
-//   },
-//           ),
-//           OptionCard(
-//             icon: Icons.note_add,
-//             text: 'Post my ride!',
-//              onTap: () {
-//               Navigator.push(
-//                   context,
-//                 MaterialPageRoute(builder: (context) => postride()),
-//     );
-//   },
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
-
-// class OptionCard extends StatelessWidget {
-//   final IconData icon;
-//   final String text;
-//   final VoidCallback onTap;
-
-//   OptionCard({required this.icon, required this.text, required this.onTap});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return InkWell(
-//       onTap: onTap,
-//       child: Card(
-//         margin: EdgeInsets.all(8.0),
-//         child: Container(
-//           padding: EdgeInsets.all(16.0),
-//           child: Row(
-//             mainAxisAlignment: MainAxisAlignment.center,
-//             children: <Widget>[
-//               Icon(icon, size: 40.0),
-//               SizedBox(width: 24.0),
-//               Text(
-//                 text,
-//                 style: TextStyle(fontSize: 18.0),
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
-
 import 'package:flutter/material.dart';
 import 'package:pooling/DestinationSearch.dart';
-import './postride.dart';
+import './PostRide.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class RideOptionScreen extends StatelessWidget {
@@ -108,30 +12,40 @@ class RideOptionScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Logged In Successfully'),
+        centerTitle: true, // Center the title if you prefer
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          currentUser != null ? // Check if currentUser is not null
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Text(
-              'Welcome, ${currentUser.displayName}!', // Display the user's display name
-              style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center,
+          if (currentUser != null)
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Text(
+                'Welcome, ${currentUser.displayName}!',
+                style: TextStyle(
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold,
+                   color: Color(0xFFF930204), // Here's the color change for the text
+                ),
+                textAlign: TextAlign.center,
+              ),
             ),
-          ) : Container(), // If currentUser is null, display an empty Container
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Text(
               'How can we help you today?',
-              style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontSize: 24.0,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFFF930204), 
+                // Here's the color change for the text
+              ),
               textAlign: TextAlign.center,
             ),
           ),
           OptionCard(
-            imagePath: 'images/findme.png', // Path to the image asset
+            imagePath: 'images/findme.png',
             text: 'Find me a ride!',
             onTap: () {
               Navigator.push(
@@ -141,7 +55,7 @@ class RideOptionScreen extends StatelessWidget {
             },
           ),
           OptionCard(
-            imagePath: 'images/postnew.png', // Path to the image asset
+            imagePath: 'images/postnew.png',
             text: 'Post my ride!',
             onTap: () {
               Navigator.push(
@@ -161,28 +75,38 @@ class OptionCard extends StatelessWidget {
   final String text;
   final VoidCallback onTap;
 
-  OptionCard({required this.imagePath, required this.text, required this.onTap});
+  const OptionCard({
+    Key? key,
+    required this.imagePath,
+    required this.text,
+    required this.onTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
       child: Card(
+        elevation: 4.0,
         margin: EdgeInsets.all(8.0),
         child: Container(
           padding: EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              SizedBox(
-                height: 120.0, // Adjust the height of the image container
-                width: 120.0, // Adjust the width of the image container
-                child: Image.asset(imagePath, fit: BoxFit.cover), // Use BoxFit.cover to scale the image
+              Image.asset(
+                imagePath,
+                height: 120.0,
+                width: 120.0,
+                fit: BoxFit.cover,
               ),
-              SizedBox(height: 16.0), // Add some space between the image and text
+              SizedBox(height: 16.0),
               Text(
                 text,
-                style: TextStyle(fontSize: 18.0),
+                style: TextStyle(
+                  fontSize: 18.0,
+                  color: Color(0xFFF930204), // Text color for the option cards
+                ),
                 textAlign: TextAlign.center,
               ),
             ],

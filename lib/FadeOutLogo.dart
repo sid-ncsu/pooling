@@ -23,7 +23,7 @@ class _FadeOutLogoState extends State<FadeOutLogo> {
       _opacity = 0.0;
     });
     // After the specified duration navigate to the next page
-    Timer(Duration(seconds: 1), () {
+    Timer(Duration(seconds: 2), () {
       if (mounted) { // Check if the widget is still in the tree
         Navigator.of(context).pushReplacement( // Use pushReplacement to replace the current page in the navigation stack
           MaterialPageRoute(builder: (context) => HomePage()),
