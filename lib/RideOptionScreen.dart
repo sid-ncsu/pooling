@@ -10,6 +10,7 @@ class RideOptionScreen extends StatelessWidget {
     User? currentUser = FirebaseAuth.instance.currentUser;
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text('Logged In Successfully'),
         centerTitle: true, // Center the title if you prefer
@@ -26,7 +27,8 @@ class RideOptionScreen extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 24.0,
                   fontWeight: FontWeight.bold,
-                   color: Color(0xFFF930204), // Here's the color change for the text
+                   color: Color(0xFFF930204), 
+                   backgroundColor: Colors.white,// Here's the color change for the text
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -39,6 +41,7 @@ class RideOptionScreen extends StatelessWidget {
                 fontSize: 24.0,
                 fontWeight: FontWeight.bold,
                 color: Color(0xFFF930204), 
+                backgroundColor: Colors.white,
                 // Here's the color change for the text
               ),
               textAlign: TextAlign.center,
@@ -47,6 +50,7 @@ class RideOptionScreen extends StatelessWidget {
           OptionCard(
             imagePath: 'images/findme.png',
             text: 'Find me a ride!',
+            
             onTap: () {
               Navigator.push(
                 context,
@@ -105,7 +109,8 @@ class OptionCard extends StatelessWidget {
                 text,
                 style: TextStyle(
                   fontSize: 18.0,
-                  color: Color(0xFFF930204), // Text color for the option cards
+                  color: Color(0xFFF930204), 
+                  backgroundColor: Colors.white,// Text color for the option cards
                 ),
                 textAlign: TextAlign.center,
               ),

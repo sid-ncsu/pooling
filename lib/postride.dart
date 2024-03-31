@@ -102,6 +102,7 @@ class _postrideState extends State<postride> {
         Position? position = await getLocation();
         // Create Firestore data map
         Map<String, dynamic> rideData = {
+          'name': user.displayName,
           'destination': _destinationController.text,
           'date': Timestamp.fromDate(date), // Convert DateTime to Timestamp
           'time': Timestamp.fromDate(time), // Convert DateTime to Timestamp
@@ -153,6 +154,7 @@ class _postrideState extends State<postride> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text('My Ride'),
       ),
@@ -219,7 +221,12 @@ class _postrideState extends State<postride> {
             ElevatedButton(
               onPressed: _submitForm,
               child: Text('Submit'),
+              style: ElevatedButton.styleFrom(
+                            foregroundColor: Colors.white,
+                            backgroundColor: Color(0xFFF930204),
+                          ),
             ),
+            
           ],
         ),
       ),

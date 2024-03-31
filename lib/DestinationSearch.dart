@@ -15,6 +15,7 @@ class _DestinationSearchState extends State<DestinationSearch> {
   Widget build(BuildContext context) {
     // Return a widget that represents the stateful widget's UI
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,

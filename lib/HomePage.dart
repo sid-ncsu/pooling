@@ -27,6 +27,7 @@ class HomePage extends StatelessWidget {
     }
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Column(
         children: <Widget>[
           SizedBox(height: MediaQuery.of(context).size.height * 0.1),
