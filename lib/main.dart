@@ -1,7 +1,23 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
+import './page2.dart';
+import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 void main() {
   runApp(const MyApp());
+  Firebase.initializeApp(
+    options: FirebaseOptions(
+      apiKey: "AIzaSyCL1c1ou-xuSV0MUqcJJkIw0pPzUmCwM30",
+      projectId: "howlride",
+      storageBucket: "howlride.appspot.com",
+      messagingSenderId: "128602331951",
+      appId: "1:128602331951:android:36c2a8147bd149e9831fda",
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -68,6 +84,29 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  Future<void> _signInWithGoogle() async {
+  try {
+    // Initialize GoogleSignIn with your client ID
+    final GoogleSignIn googleSignIn = GoogleSignIn(clientId: '128602331951-rkdhgh1r7s348d3uindqclkv2b3rims2.apps.googleusercontent.com');
+    
+    final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
+    final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
+    await FirebaseAuth.instance.signInWithCredential(credential);
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => page2()),
+    );
+  } catch (error) {
+    print(error);
+  }
+}
+
+
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -90,6 +129,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Column(
+          
           // Column is also a layout widget. It takes a list of children and
           // arranges them vertically. By default, it sizes itself to fit its
           // children horizontally, and tries to be as tall as its parent.
@@ -112,13 +152,17 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+            ElevatedButton(
+              onPressed: _signInWithGoogle,
+              child: Text('Sign in with Google'),
+            ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: _signInWithGoogle,
         tooltip: 'Increment',
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.login),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
