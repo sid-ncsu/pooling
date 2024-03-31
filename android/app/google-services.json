@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "128602331951",
+    "project_id": "howlride",
+    "storage_bucket": "howlride.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:128602331951:android:36c2a8147bd149e9831fda",
+        "android_client_info": {
+          "package_name": "com.example.pooling"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCL1c1ou-xuSV0MUqcJJkIw0pPzUmCwM30"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
